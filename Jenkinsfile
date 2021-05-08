@@ -28,7 +28,7 @@ pipeline {
 						   nexusVersion: 'nexus3', 
 						   protocol: 'http', 
 						   repository: 'maven-nexus-repo', 
-						   version: '1.0.0'
+						   version: '${BUILD_NUMBER}'
                     }
             }
         }

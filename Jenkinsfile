@@ -32,5 +32,16 @@ pipeline {
                     }
             }
         }
+        stage('Upload War To Tomcat'){
+            steps{
+                script{
+
+                    deploy adapters: [tomcat9(credentialsId: '690674a3-b5cc-489a-a643-38218051e29e', 
+                    path: '', url: 'http://ec2-3-21-41-189.us-east-2.compute.amazonaws.com:8080/')], 
+                    contextPath: 'http://ec2-3-21-41-189.us-east-2.compute.amazonaws.com:8080/', 
+                    war: '**/*.war'
+                    }
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@ pipeline {
                         touch xml.getPath()
             }
                 }
+            }
         
         post {
             always {

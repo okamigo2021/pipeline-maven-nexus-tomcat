@@ -37,9 +37,10 @@ pipeline {
                 script{
 
                     sh "wget http://192.168.1.172:8081/repository/maven-nexus-repo/home/java/simple-app/1.0.0/simple-app-1.0.0.war"
+                    sh "mv simple-app-1.0.0.war devops.war"
                     deploy adapters: [tomcat9(credentialsId: '690674a3-b5cc-489a-a643-38218051e29e', 
                     path: '', url: 'http://ec2-3-21-41-189.us-east-2.compute.amazonaws.com:8080/')], 
-                    contextPath: 'http://ec2-3-21-41-189.us-east-2.compute.amazonaws.com:8080/', 
+                    contextPath: 'devops', 
                     war: '**/*.war'
                     }
             }

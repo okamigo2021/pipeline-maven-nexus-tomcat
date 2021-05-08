@@ -19,6 +19,7 @@ pipeline {
                     for(xml in testResults) {
                         touch xml.getPath()
             }
+                }
         
         post {
             always {

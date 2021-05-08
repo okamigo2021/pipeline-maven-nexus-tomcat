@@ -14,17 +14,11 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
-                script {
-                    def testResults = findFiles(glob: 'build/reports/**/*.xml')
-                    for(xml in testResults) {
-                        touch xml.getPath()
-            }
-                }
             }
         
         post {
             always {
-                 junit 'build/reports/**/*.xml'
+                 junit '**/target/TEST-*.xml'
              }
         }
         }
